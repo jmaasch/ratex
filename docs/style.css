@@ -1,0 +1,247 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #ffffff;
+  color: #000000;
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+/* ── Layout ── */
+
+.container {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* ── Nav ── */
+
+nav {
+  border-bottom: 1px solid #000;
+  padding: 1.25rem 0;
+}
+
+nav .container {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+nav .brand {
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  color: #000;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+nav ul a {
+  color: #000;
+  text-decoration: none;
+  font-size: 0.9rem;
+  letter-spacing: 0.03em;
+}
+
+nav ul a:hover {
+  text-decoration: underline;
+}
+
+/* ── Hero ── */
+
+.hero {
+  padding: 5rem 0 4rem;
+  border-bottom: 1px solid #000;
+}
+
+.hero h1 {
+  font-size: 4rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  margin-bottom: 1.25rem;
+}
+
+.hero .tagline {
+  font-size: 1.2rem;
+  max-width: 520px;
+  margin-bottom: 2.5rem;
+  color: #222;
+}
+
+.badge-row {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin-bottom: 2.5rem;
+}
+
+.badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: 1px solid #000;
+  padding: 0.25rem 0.6rem;
+}
+
+.install-block {
+  background: #f4f4f4;
+  border-left: 3px solid #000;
+  padding: 0.9rem 1.2rem;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.9rem;
+  display: inline-block;
+}
+
+/* ── Sections ── */
+
+section {
+  padding: 3.5rem 0;
+  border-bottom: 1px solid #000;
+}
+
+section:last-of-type {
+  border-bottom: none;
+}
+
+section h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  margin-bottom: 1.25rem;
+  text-transform: uppercase;
+}
+
+section p {
+  margin-bottom: 1rem;
+  max-width: 640px;
+}
+
+section p:last-child {
+  margin-bottom: 0;
+}
+
+/* ── Code blocks ── */
+
+pre {
+  background: #f4f4f4;
+  border-left: 3px solid #000;
+  padding: 1rem 1.2rem;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+
+code {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.9em;
+  background: #f4f4f4;
+  padding: 0.1em 0.3em;
+}
+
+pre code {
+  background: none;
+  padding: 0;
+}
+
+/* ── Color swatches ── */
+
+.swatch-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+.swatch {
+  display: flex;
+  flex-direction: column;
+}
+
+.swatch-color {
+  width: 100%;
+  height: 48px;
+  border: 1px solid #ddd;
+}
+
+.swatch-label {
+  font-size: 0.7rem;
+  margin-top: 0.3rem;
+  letter-spacing: 0.02em;
+  color: #333;
+}
+
+.swatch-hex {
+  font-size: 0.7rem;
+  font-family: "Courier New", Courier, monospace;
+  color: #555;
+}
+
+/* ── Function table ── */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+th {
+  text-align: left;
+  border-bottom: 2px solid #000;
+  padding: 0.5rem 0.75rem 0.5rem 0;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+}
+
+td {
+  border-bottom: 1px solid #ddd;
+  padding: 0.6rem 0.75rem 0.6rem 0;
+  vertical-align: top;
+}
+
+td:first-child {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+/* ── Footer ── */
+
+footer {
+  padding: 2rem 0;
+  border-top: 1px solid #000;
+  font-size: 0.8rem;
+  color: #555;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+footer a {
+  color: #000;
+}

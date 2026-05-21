@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ratex</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ── Navigation ── -->
+  <nav>
+    <div class="container">
+      <a class="brand" href="#">ratex</a>
+      <ul>
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#installation">Installation</a></li>
+        <li><a href="#usage">Usage</a></li>
+        <li><a href="#colors">Colors</a></li>
+        <li><a href="https://github.com/jmaasch/ratex" target="_blank">GitHub</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ── Hero ── -->
+  <header class="hero">
+    <div class="container">
+      <h1>ratex</h1>
+      <p class="tagline">LaTeX colors for R data visualizations.</p>
+      <div class="badge-row">
+        <span class="badge">R Package</span>
+        <span class="badge">MIT License</span>
+        <span class="badge">Open Source</span>
+      </div>
+      <div class="install-block">devtools::install_github("jmaasch/ratex")</div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ── Overview ── -->
+    <section id="overview">
+      <div class="container">
+        <h2>Overview</h2>
+        <p>
+          <strong>ratex</strong> brings the full LaTeX color vocabulary into R,
+          making it easy to use publication-quality colors in
+          <code>ggplot2</code> figures, base R graphics, and any other
+          visualization workflow.
+        </p>
+        <p>
+          Whether you are typesetting a document in LaTeX and want your plots
+          to match, or simply want a curated palette of named colors with
+          well-known hex values, ratex gives you a consistent, searchable
+          interface to hundreds of colors drawn from the dvipsnames,
+          X11, and latexcolor.com color sets.
+        </p>
+      </div>
+    </section>
+
+    <!-- ── Installation ── -->
+    <section id="installation">
+      <div class="container">
+        <h2>Installation</h2>
+        <p>Install the development version from GitHub:</p>
+        <pre><code># install.packages("devtools")
+devtools::install_github("jmaasch/ratex")</code></pre>
+        <p style="margin-top:1.25rem;">Then load the package:</p>
+        <pre><code>library(ratex)</code></pre>
+      </div>
+    </section>
+
+    <!-- ── Usage ── -->
+    <section id="usage">
+      <div class="container">
+        <h2>Usage</h2>
+        <p>Look up a color by name and get its hex value:</p>
+        <pre><code>ratex("MidnightBlue")
+#> [1] "#006795"</code></pre>
+        <p style="margin-top:1.25rem;">Use ratex colors directly inside a <code>ggplot2</code> call:</p>
+        <pre><code>library(ggplot2)
+
+ggplot(mtcars, aes(wt, mpg)) +
+  geom_point(color = ratex("BurntOrange"), size = 3) +
+  theme_minimal()</code></pre>
+        <p style="margin-top:1.25rem;">
+          Pass a vector of names to build a custom palette for use with
+          <code>scale_color_manual()</code> or <code>scale_fill_manual()</code>:
+        </p>
+        <pre><code>my_palette &lt;- ratex(c("NavyBlue", "BurntOrange", "ForestGreen", "Plum"))
+
+ggplot(iris, aes(Sepal.Length, Sepal.Width, color = Species)) +
+  geom_point(size = 2) +
+  scale_color_manual(values = my_palette) +
+  theme_minimal()</code></pre>
+
+        <h2 style="margin-top:2.5rem;">Functions</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Function</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>ratex(name)</td>
+              <td>Return the hex code for one or more named LaTeX colors.</td>
+            </tr>
+            <tr>
+              <td>ratex_search(pattern)</td>
+              <td>Search available color names by substring or regex.</td>
+            </tr>
+            <tr>
+              <td>ratex_palette(n)</td>
+              <td>Return a balanced palette of <em>n</em> colors.</td>
+            </tr>
+            <tr>
+              <td>ratex_show(name)</td>
+              <td>Plot a visual swatch for one or more colors.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ── Colors ── -->
+    <section id="colors">
+      <div class="container">
+        <h2>Colors</h2>
+        <p>
+          ratex includes colors from three curated sources:
+        </p>
+        <table style="margin-top:1rem;">
+          <thead>
+            <tr>
+              <th>Set</th>
+              <th>Source</th>
+              <th>Count</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>dvipsnames</td>
+              <td>Standard LaTeX <code>xcolor</code> package</td>
+              <td>68</td>
+            </tr>
+            <tr>
+              <td>x11</td>
+              <td>X11 / CSS named colors</td>
+              <td>504</td>
+            </tr>
+            <tr>
+              <td>latexcolors</td>
+              <td>latexcolor.com extended set</td>
+              <td>758</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p style="margin-top:1.5rem;">A selection from the dvipsnames set:</p>
+        <div class="swatch-grid">
+          <div class="swatch"><div class="swatch-color" style="background:#FBB982;"></div><span class="swatch-label">Apricot</span><span class="swatch-hex">#FBB982</span></div>
+          <div class="swatch"><div class="swatch-color" style="background:#2D2F92;"></div><span class="swatch-label">Blue</span><span class="swatch-hex">#2D2F92</span></div>
+          <div class="swatch"><div class="swatch-color" style="background:#F7921D;"></div><span class="swatch-label">BurntOrange</span><span class="swatch-hex">#F7921D</span></div>
+          <div class="swatch"><div class="swatch-color" style="background:#00A99D;"></div><span class="swatch-label">Emerald</span><span class="swatch-hex">#00A99D</span></div>
+          <div class="swatch"><div class="swatch-color" style="background:#009B55;"></div><span class="swatch-label">ForestGreen</span><span class="swatch-hex">#009B55</span></div>
+          <div class="swatch"><div class="swatch-color" style="background:#FFDF42;"></div><span class="swatch-label">Goldenrod</span><span class="swatch-hex">#FFDF42</span></div>
+          <div class="swatch"><div class="swatch-color" style="background:#006795;"></div><span class="swatch-label">MidnightBlue</span><span class="swatch-hex">#006795</span></div>
+          <div class="swatch"><div class="swatch-color" style="background:#006EB8;"></div><span class="swatch-label">NavyBlue</span><span class="swatch-hex">#006EB8</span></div>
+          <div class="swatch"><div class="swatch-color" style="background:#AF72B0;"></div><span class="swatch-label">Orchid</span><span class="swatch-hex">#AF72B0</span></div>
+          <div class="swatch"><div class="swatch-color" style="background:#92268F;"></div><span class="swatch-label">Plum</span><span class="swatch-hex">#92268F</span></div>
+          <div class="swatch"><div class="swatch-color" style="background:#ED1B23;"></div><span class="swatch-label">Red</span><span class="swatch-hex">#ED1B23</span></div>
+          <div class="swatch"><div class="swatch-color" style="background:#46C5DD;"></div><span class="swatch-label">SkyBlue</span><span class="swatch-hex">#46C5DD</span></div>
+          <div class="swatch"><div class="swatch-color" style="background:#00B4CE;"></div><span class="swatch-label">Turquoise</span><span class="swatch-hex">#00B4CE</span></div>
+          <div class="swatch"><div class="swatch-color" style="background:#58429B;"></div><span class="swatch-label">Violet</span><span class="swatch-hex">#58429B</span></div>
+          <div class="swatch"><div class="swatch-color" style="background:#FFF200;"></div><span class="swatch-label">Yellow</span><span class="swatch-hex">#FFF200</span></div>
+          <div class="swatch"><div class="swatch-color" style="background:#FAA21A;"></div><span class="swatch-label">YellowOrange</span><span class="swatch-hex">#FAA21A</span></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── Footer ── -->
+  <footer>
+    <div class="container" style="display:flex; justify-content:space-between; width:100%; flex-wrap:wrap; gap:0.5rem;">
+      <span>ratex &mdash; LaTeX colors for R</span>
+      <span>
+        <a href="https://github.com/jmaasch/ratex" target="_blank">GitHub</a>
+        &nbsp;&middot;&nbsp;
+        MIT License
+      </span>
+    </div>
+  </footer>
+
+</body>
+</html>
